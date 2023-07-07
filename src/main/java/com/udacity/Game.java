@@ -151,6 +151,77 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         //Student code goes here ...
+        for (int i = 0; i<3; i++) {
+            for (int j = 0; j<3; j++) {
+                if (i == 0) {
+                    if (grid[i][j] == 'x' && grid[i + 1][j] == 'x' && grid[i + 2][j] == 'x') {
+                        result = "x wins";
+                    }
+                    if (grid[j][i] == 'x' && grid[j][i+1] == 'x' && grid[j][i+2] == 'x') {
+                        result = "x wins";
+                    }
+                    if (grid[i][j] == 'o' && grid[i + 1][j] == 'o' && grid[i + 2][j] == 'o') {
+                        result = "o wins";
+                    }
+                    if (grid[j][i] == 'o' && grid[j][i+1] == 'o' && grid[j][i+2] == 'o') {
+                        result = "o wins";
+                    }
+                    if (j == 0){
+                        if (grid[i][j] == 'x' && grid[i+1][j+1] == 'x' && grid[i+2][j+2] == 'x') {
+                            result = "x wins";
+                        }
+                        if (grid[i][j] == 'o' && grid[i+1][j+1] == 'o' && grid[i+2][j+2] == 'o') {
+                            result = "o wins";
+                        }
+                    }
+                }
+                if (i == 2 && j == 0){
+                    if (grid[i][j] == 'x' && grid[i-1][j+1] == 'x' && grid[i-2][j+2] == 'x') {
+                        result = "x wins";
+                    }
+                    if (grid[i][j] == 'o' && grid[i-1][j+1] == 'o' && grid[i-2][j+2] == 'o') {
+                        result = "o wins";
+                    }
+                }
+            }
+        }
+        if (freeSpots == 0 && result.equals("None")) {
+            result = "Tie";
+        }
+
+
+//        if (grid[0][0] == 'x' && grid[1][1] == 'x' && grid[2][2] == 'x') {
+//            result = "x wins";
+//        }
+//        if (grid[2][0] == 'x' && grid[1][1] == 'x' && grid[0][2] == 'x') {
+//            result = "x wins";
+//        }
+////        if (grid[0][0] == 'o' && grid[1][1] == 'o' && grid[2][2] == 'o') {
+////            result = "o wins";
+////        }
+//        if (grid[2][0] == 'o' && grid[1][1] == 'o' && grid[0][2] == 'o') {
+//            result = "o wins";
+//        }
+//        if (grid[0][0] == 'x' && grid[1][0] == 'x' && grid[2][0] == 'x'){
+//            result = "x wins";
+//        }
+//        if (grid[0][1] == 'x' && grid[1][1] == 'x' && grid[2][1] == 'x'){
+//            result = "x wins";
+//        }
+//        if (grid[0][2] == 'x' && grid[1][2] == 'x' && grid[2][2] == 'x'){
+//            result = "x wins";
+//        }
+//        if (grid[0][0] == 'x' && grid[0][1] == 'x' && grid[0][2] == 'x'){
+//            result = "x wins";
+//        }
+//        if (grid[1][0] == 'x' && grid[1][1] == 'x' && grid[1][2] == 'x'){
+//            result = "x wins";
+//        }
+//        if (grid[2][0] == 'x' && grid[2][1] == 'x' && grid[2][2] == 'x'){
+//            result = "x wins";
+//        }
+
+//        System.out.println("Wywołana funkcja");
         return result;
     }
 
